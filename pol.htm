@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+  <title>SVG path animation</title>
+  <link href="style.css" rel="stylesheet">
+  <link rel="css/lid_page_css.css" type="text/css" href="css/lid_page_css.css">
+  <script src="js_jqery/jquery-2.1.1.min.js"></script>
+</head>
+<style type="text/css">
+
+  @import "http://webfonts.ru/import/roboto.css";
+
+  body{
+    background: #111;
+    padding: 0;
+    margin: 0;
+  }
+
+#not_mute{
+  z-index: 2;
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#mute{
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#footer{
+  width: 100%;
+  height: 30px;
+  background: #333;
+  position: absolute;
+  bottom: 0px;
+  transition-duration: 0.3s;
+}
+
+#footer:hover{
+  transition: 0.3s;
+  height: 50px ;
+}
+
+#ubout{
+  margin-top: 5px;
+  font-family: 'Roboto';
+  color: white;
+}
+
+#ubout_us{
+  opacity: 0;
+  width: 300px;
+  height: 400px;
+  background: #666;
+}
+
+#six_slide_banner{
+  position: relative;
+  top: 150px;
+  color: transparent;
+  font-size: 10em;
+  font-family: 'Roboto';
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+}
+
+#six_slide_creator{
+  color: white;
+  font-family: 'Roboto';
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+  position: relative;
+  top: 350px;
+}
+
+</style>
+<body>
+
+<button id="btn_test">123</button>
+
+  <center> <div id="six_slide_banner"><b>WOTANNATURE</b></div></center> 
+
+<!-- <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="100" height="140" viewBox="0 0 350.000000 391.000000"
+ preserveAspectRatio="xMidYMid meet">
+<g transform="translate(0.000000,391.000000) scale(0.100000,-0.100000)"
+fill="#ffffff">
+<path d="M258 3637 l-217 -232 704 -698 705 -699 0 -982 0 -983 203 -6 c111
+-4 248 -7 305 -7 l102 0 0 982 0 983 705 705 705 705 -218 218 -218 218 -484
+-478 -485 -478 -3 493 -2 492 -305 0 -305 0 0 -492 -1 -493 -487 492 -487 492
+-217 -232z"/>
+</g>
+</svg> -->
+
+<center><div id="six_slide_creator">Григорий Украинский &copy; 2015</div></center>
+
+
+<div id="footer"><center><div id="ubout">о создателях</div></center></div>
+<center> <div id="ubout_us"></div> </center> 
+
+</body>
+<script type="text/javascript">
+   $("#btn_test").click(function(){
+    $("#six_slide_banner").animate({"text-shadow": 0 0 "32px" "white";}, 1000);
+   })
+</script>
+</html>
