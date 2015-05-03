@@ -1,278 +1,79 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
- <head>
-  <meta charset="utf-8">
-  <title>index</title>
-  <script src="js_jqery/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript">
-    $(window).on('load', function () {
-    var $preloader = $('#page-preloader'),
-        $spinner   = $preloader.find('.spinner');
-    $spinner;
-    $preloader.delay(8100).fadeOut('slow');
-    });
-  </script>
- </head>
- <style type="text/css">
+<head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
 
-@font-face{
-  font-family: Archive;
-  src: url(fonts/Archive.ttf);
-}
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+<div id="wrapper">
 
- html{
-    overflow-y: hidden; 
- }
+    <!--tubular-mute - для отключения включения звука-->
+    <div id="sound-btn" class="tubular-mute sound">
+    </div>
 
-   #page-preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    z-index: 100500;
- }
+    <p class="slide" id="slide_one"> животные </p>
 
-#page-preloader .spinner {
-    width: 80px;
-    height: 85px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background: url(gif/preloader.gif) no-repeat 50% 50%;
-    margin: -16px 0 0 -16px;
- }
+    <p class="slide" id="slide_two"> природа </p>
 
- #video_background{
- 	z-index: -100;
- 	position: fixed;
- 	top: 0px;
- 	right: 0px;
- 	left: 0px;
- 	bottom: 0px;
- 	min-height: 100%;
- 	min-width: 100%;
- 	width: 100%;
- }
+    <p class="slide" id="slide_three"><span>WotanNature  </span></p>
 
+    <div id="down-wrapper">
+        <div id="down-inner">
+            <a href="lid_page.htm">
+                <img src="photo/photo_index/down_index.png" height="50" width="50">
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
 
-  #slide_one{
-  z-index: 10;
-  font-family: 'Archive';
-  font-size: 3.9em;
-  text-align: center;
-  margin-top: 160px;
-  opacity: 0;
-  }
-
-  #slide_two{
-  z-index: 11;
-  font-family: 'Archive';
-  font-size: 3.9em;
-  text-align: center;
-  margin-top: 10px;
-  opacity: 0; 
-  }
-
-  #slide_three {
- 	z-index: 10;
- 	font-family: 'Archive';
- 	font-size: 3.9em;
-  opacity: 0;
- 	text-align: center;
- 	margin-top: 160px;
- }
-
- #down{
-  opacity: 0;
-  position: absolute; 
-  top: 550px;
-  right: 49%;
-  animation-name: anim;
-  transition: 0.5s;
- }
-
- #down:hover{
-  transition: 0.5s;
-  top: 570px;
- }
-
- @keyframes anim{
-  0% {margin-top: 20px;}
-  100% {margin-top: 0px;}
- }
-
- #btn_valume{
- 	left: 0px;
- }
-
- #btn_valume_plus{
- 	left: 0px;
- /*	visibility: hidden;*/
- }
-
- #not_mute{
-  z-index: 2;
-  opacity: 0;
-  position: absolute;
-  top: 10px;
-  left: 100px;
-}
-
-#mute{
-  z-index: 10;
-  position: absolute;
-  top: 10px;
-  left: 100px;
-}
-
- </style>
-
- <body>
-    <div id="page-preloader"><span class="spinner"></span></div>
-
-    <img id="mute" src="photo/photo_index/mute.ico" width="30" height="30">
-    <img id="not_mute" src="photo/photo_index/not_mute.png" width="30" height="30">
-
-    <video src="video/video_on_index.mp4" id="video_background" preload="auto" autoplay="true" loop="loop" width="100%"  >
-          <source  src="3.mp4" type='video/mp4'>
-          <source  src="3.webm" type='video/webm'>
-          <source  src="3.ogg" type='video/ogg'>
-    </video> 
-
-<!--      <button id="btn_valume">-</button>
-     <button id="btn_valume_plus">+</button> -->
-
-     <div id="slide_one">
-      животные
-     </div>
-     <div id="slide_two">
-      природа
-     </div>
-     <div id="slide_three">
-     WotanNature
-     </div> 
-
-     <div id="down">
-      <a href="lid_page.htm"> <img src="photo/photo_index/down_index.png" height="50" width="50"> </a> 
-     </div>
- </body>
+<script src="script/jquery-2.1.1.min.js"></script>
+<script src="script/jquery.tubular.1.0.js"></script>
 <script type="text/javascript">
-  
-   document.getElementById('video_background').pause();
 
-  setTimeout(function () {
-   document.getElementById('video_background').play();
-   }, 9000); 
 
-  $("#slide_one").delay(8000).animate({marginTop: "500px", opacity: 0, fontSize: "3.5em"}, 0);
-  $("#slide_one").animate({marginTop: "130px", opacity: 1, fontSize: '3.9em'}, 2200);
-  $("#slide_one").animate({marginTop: "80px", opacity: 0, fontSize: '3.9em'}, 1000);
+    $(document).ready(function () {
+        //анимация страницы
+        var $preloader = $('#page-preloader');
+        $preloader.delay(3000).fadeOut('slow', function () {
+            $("#slide_one").delay(1000).animate({marginTop: "2em", opacity: 1, fontSize: '3.9em'}, 1000, function () {
+                $("#slide_two").animate({marginTop: "3em", opacity: 1, fontSize: '3.9em'}, 1000, function () {
+                    $('#slide_one').animate({opacity: 0}, 1000);
+                    $('#slide_two').animate({opacity: 0}, 1000, function () {
+                        $("#slide_three").animate({
+                            marginTop: "1em",
+                            opacity: 1,
+                            fontSize: '3.9em'
+                        }, 2000, function () {
+                            $("#down-wrapper").animate({opacity: 1}, 500);
+                        });
 
-  $("#slide_two").delay(8000).animate({marginTop: "400px", opacity: 0, fontSize: "3.5em"}, 0);
-  $("#slide_two").animate({marginTop: "10px", opacity: 1, fontSize: '3.9em'}, 2300);
-  $("#slide_two").animate({marginTop: "-20px", opacity: 0, fontSize: '3.9em'}, 1000);  
+                    });
+                });
+            });
+        });
 
-  $("#slide_three").delay(11000).animate({marginTop: "500px", opacity: 0, fontSize: '3.1em'}, 0);  
-  $("#slide_three").animate({marginTop: "-80px", opacity: 1, fontSize: '3.9em'}, 3200);
-
-  $("#down").delay(15000).animate({ opacity: 0}, 0);  
-  $("#down").animate({opacity: 1}, 1000);
-
+        var sound = 1;
+        $("#sound-btn").click(function () {
+            if (sound == '1') {
+                $("#sound-btn").removeClass("sound");
+                $("#sound-btn").addClass("mute");
+                sound = 0;
+            } else {
+                $("#sound-btn").removeClass("mute");
+                $("#sound-btn").addClass("sound");
+                sound = 1
+            }
+        });
+    });
+    //подключаем фоновое видео
+    $('#wrapper').tubular({videoId: 'u9-3arg0ssA', mute: false});
 </script>
 <script type="text/javascript">
-  $("#mute").click(function(){
-    $("#mute").animate({opacity: 0}, 300);
-    $("#mute").css({"z-index": "2"});
-    $("#not_mute").animate({opacity: 1}, 300);
-    $("#not_mute").css({"z-index": "10"});
-    document.getElementById('video_background').volume-=1;
-  })
-  $("#not_mute").click(function(){
-    $("#mute").animate({opacity: 1}, 300);
-    $("#mute").css({"z-index": "10"});
-    $("#not_mute").animate({opacity: 0}, 300);
-    $("#not_mute").css({"z-index": "2"});
-    document.getElementById('video_background').volume+=1;
-  })
-</script>
-<script type="text/javascript">
-
-
-  /*$(document).ready(function(){
-
-    $("#btn_valume").click(function(){
-      document.getElementById('video_background').volume-=1;
-      window.onfocus = function (){
-        var volumeFocus = document.getElementById('video_background').volume-=1;
-      };
-    });
-    $("#btn_valume_plus").click(function(){
-      document.getElementById('video_background').volume+=1;
-      window.onfocus = function (){
-        var volumeFocus = document.getElementById('video_background').volume+=1;
-      };
-      window.onblur = function (){
-        var volumeNotFocus = document.getElementById('video_background').volume-=1;
-      };
-    });
-    window.onblur = function (){
-        var volumeNotFocus = document.getElementById('video_background').volume-=1;
-    };
-    window.onfocus = function (){
-        var volumeFocus = document.getElementById('video_background').volume+=1;
-    };
-  });*/
 
 </script>
 </html>
-
-<!--<script type="text/javascript">
-
-  $(document).ready(function(){
-
-     var vol = true;
-     $("#vol_btn").click(function(){
-       if(vol)
-              document.getElementById('video_background').volume=0;
-       }else{
-              document.getElementById('video_background').volume=1;
-       }
-     })
-     window.onfocus  = function (){
-       if(!vol){
-          $("#vol_btn").click(); 
-       }
-     }
-
-
-
-    $("#btn_valume").click(function(){
-
-      if(volume > 0.2 ){
-      document.getElementById('video_background').volume-=0.2;
-    }
-
-      window.onfocus = function (){
-        var volumeFocus = document.getElementById('video_background').volume-=1;
-      };
-    });
-    $("#btn_valume_plus").click(function(){
-      document.getElementById('video_background').volume+=1;
-      window.onfocus = function (){
-        var volumeFocus = document.getElementById('video_background').volume+=1;
-      };
-      window.onblur = function (){
-        var volumeNotFocus = document.getElementById('video_background').volume-=1;
-      };
-    });
-    window.onblur = function (){
-        var volumeNotFocus = document.getElementById('video_background').volume-=1;
-    };
-    window.onfocus = function (){
-        var volumeFocus = document.getElementById('video_background').volume+=1;
-    };
-  });
-
-</script> -->
