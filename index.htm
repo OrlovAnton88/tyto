@@ -33,15 +33,16 @@
 
 <script src="script/jquery-2.1.1.min.js"></script>
 <script src="script/jquery.tubular.1.0.js"></script>
-<script type="text/javascript">
 
+<script type="text/javascript">
 
     $(document).ready(function () {
         //анимация страницы
         var $preloader = $('#page-preloader');
+
         $preloader.delay(3000).fadeOut('slow', function () {
-            $("#slide_one").delay(1000).animate({marginTop: "2em", opacity: 1, fontSize: '3.9em'}, 1000, function () {
-                $("#slide_two").animate({marginTop: "3em", opacity: 1, fontSize: '3.9em'}, 1000, function () {
+            $("#slide_one").delay(1000).animate({marginTop: "2em", opacity: 1}, 1000, function () {
+                $("#slide_two").animate({marginTop: "3em", opacity: 1}, 1000, function () {
                     $('#slide_one').animate({opacity: 0}, 1000);
                     $('#slide_two').animate({opacity: 0}, 1000, function () {
                         $("#slide_three").animate({
@@ -72,8 +73,5 @@
     });
     //подключаем фоновое видео
     $('#wrapper').tubular({videoId: 'u9-3arg0ssA', mute: false});
-</script>
-<script type="text/javascript">
-
 </script>
 </html>
